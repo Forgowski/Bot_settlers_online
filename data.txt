@@ -1,0 +1,24 @@
+1.wejsc w gwiazde
+2.wybrac generala 
+3.doladowac wojsko
+4.wlaczyc przygode
+5.wyslac generalow
+6.wejsc w przygode
+7.zaczekac az doleca
+8.wybrac generalow
+9.wyslac atak.
+10.przestawic jednego z generalow
+11.znowu wyslac atak
+12.zakonczyc ukonczone zadania 
+13.wyklikac znajdzki
+14.zamknac przygode
+15.zaczekac az generalowie wroca
+16.powtarzac
+
+
+gwiazda:Point(x=953, y=883)
+serch bar Point(x=1015, y=473)
+1.duch Point(x=726, y=526)
+2.duch Point(x=784, y=525)
+odpalanie przygody Point(x=878, y=767)
+
