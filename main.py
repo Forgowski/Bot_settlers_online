@@ -1,20 +1,19 @@
 import pyautogui
 import time
-import keyboard
-import numpy
 import random
-import win32api
-import win32con
 
 
 quest_counter = 0
 time.sleep(2)
 
+
 def cords(x, y):
-    pyautogui.moveTo(x ,y)
+    pyautogui.moveTo(x, y)
     time.sleep(1.3)
     pyautogui.click(x, y)
     time.sleep(1)
+
+
 def collects():
     cords(x=665, y=689)
     cords(x=801, y=736)
@@ -29,15 +28,16 @@ def collects():
     cords(x=750, y=78)
     cords(x=807, y=300)
 
-def attack(gx ,gy ,ex ,ey):
+
+def attack(gx, gy, ex, ey):
     time.sleep(random.uniform(0.8, 1.2))  # 1
     pyautogui.moveTo(gx, gy)  # set mouse position
     time.sleep(random.uniform(0.8, 1.2))
     pyautogui.click(gx, gy)  # choosing ghost
     while True:
         time.sleep(random.uniform(0.8, 1.2))
-        if pyautogui.locateOnScreen('gotowy5.jpg', confidence=0.7):
-            break;
+        if pyautogui.locateOnScreen('grafika/gotowy5.jpg', confidence=0.7):
+            break
         else:
             pyautogui.click(gx, gy)
     time.sleep(random.uniform(0.8, 1.2))
@@ -46,6 +46,7 @@ def attack(gx ,gy ,ex ,ey):
     pyautogui.moveTo(ex, ey)
     time.sleep(random.uniform(0.8, 1.2))
     pyautogui.click(ex, ey)  # choose enemy
+
 
 def sendAttack():
     attack(617, 248, 546, 193)
@@ -60,8 +61,6 @@ def sendAttack():
 
     attack(674, 301, 957, 746)
 
-
-
 def pressStar():
     pyautogui.click(953, 883)
 
@@ -74,7 +73,7 @@ def sendGhost():
     spellGhost()
     for i in range(6):
         time.sleep(1)
-        pyautogui.click(726 + i * 58, 526) #choose general
+        pyautogui.click(726 + i * 58, 526)  #choose general
         time.sleep(1)
         pyautogui.click(809, 589)
         time.sleep(1)
@@ -93,6 +92,8 @@ def spellGhost():
     pyautogui.keyDown('c')
     time.sleep(random.uniform(0.2, 0.35))
     pyautogui.keyDown('h')
+    time.sleep(random.uniform(0.2, 0.35))
+    pyautogui.keyDown('1')
 
 
 def startAdventure():    #spelling and starting adventure
@@ -113,15 +114,15 @@ def startAdventure():    #spelling and starting adventure
 def ghostService():
     need_wait_more = True
     while need_wait_more:
-        if pyautogui.locateOnScreen('gotowe duchy.jpg', confidence=0.95) or pyautogui.locateOnScreen('gotowe duchy2.jpg', confidence=0.95):
+        if pyautogui.locateOnScreen('grafika/gotowe duchy.jpg', confidence=0.95) or pyautogui.locateOnScreen('grafika/gotowe duchy2.jpg', confidence=0.95):
             need_wait_more = False
     for i in range(6):
         time.sleep(1)
-        pyautogui.click(726 + i * 58, 526) #choose general
+        pyautogui.click(726 + i * 58, 526)  #choose general
         time.sleep(1)
         pyautogui.click(1174, 694)  #clear military
         time.sleep(1)
-        pyautogui.click(1178, 585, clicks=2) #choose which military you want
+        pyautogui.click(1178, 585, clicks=2)  #choose which military you want
         time.sleep(random.uniform(0.2, 0.35))
         pyautogui.keyDown('2')
         time.sleep(random.uniform(0.2, 0.35))
@@ -135,6 +136,7 @@ def ghostService():
         time.sleep(1)
         pressStar()
 
+
 def confirmQuest():
     global quest_counter
     quest_counter += 1
@@ -142,29 +144,30 @@ def confirmQuest():
     pyautogui.click(1029, 760)
     time.sleep(random.uniform(0.8, 1.2))
 
+
 def acceptQuest():
-    if pyautogui.locateOnScreen('misja1.jpg', confidence=0.9):
-        pyautogui.click(pyautogui.locateOnScreen('misja1.jpg', confidence=0.9))
+    if pyautogui.locateOnScreen('grafika/misja1.jpg', confidence=0.9):
+        pyautogui.click(pyautogui.locateOnScreen('grafika/misja1.jpg', confidence=0.9))
         confirmQuest()
 
-    elif pyautogui.locateOnScreen('misja2.jpg', confidence=0.9):
-         pyautogui.click(pyautogui.locateOnScreen('misja2.jpg', confidence=0.9))
-         confirmQuest()
+    elif pyautogui.locateOnScreen('grafika/misja2.jpg', confidence=0.9):
+        pyautogui.click(pyautogui.locateOnScreen('grafika/misja2.jpg', confidence=0.9))
+        confirmQuest()
 
-    elif pyautogui.locateOnScreen('misja3.jpg', confidence=0.9):
-         pyautogui.click(pyautogui.locateOnScreen('misja3.jpg', confidence=0.9))
-         confirmQuest()
+    elif pyautogui.locateOnScreen('grafika/misja3.jpg', confidence=0.9):
+        pyautogui.click(pyautogui.locateOnScreen('grafika/misja3.jpg', confidence=0.9))
+        confirmQuest()
 
-    elif pyautogui.locateOnScreen('misja4.jpg', confidence=0.9):
-         pyautogui.click(pyautogui.locateOnScreen('misja4.jpg', confidence=0.9))
-         confirmQuest()
+    elif pyautogui.locateOnScreen('grafika/misja4.jpg', confidence=0.9):
+        pyautogui.click(pyautogui.locateOnScreen('grafika/misja4.jpg', confidence=0.9))
+        confirmQuest()
 
-    elif pyautogui.locateOnScreen('misja5.jpg', confidence=0.9):
-         pyautogui.click(pyautogui.locateOnScreen('misja5.jpg', confidence=0.9))
-         confirmQuest()
-    elif pyautogui.locateOnScreen('ukonczone zadanie.jpg', confidence=0.6):
-         pyautogui.keyDown('f2')
-         time.sleep(4)
+    elif pyautogui.locateOnScreen('grafika/misja5.jpg', confidence=0.9):
+        pyautogui.click(pyautogui.locateOnScreen('grafika/misja5.jpg', confidence=0.9))
+        confirmQuest()
+    elif pyautogui.locateOnScreen('grafika/ukonczone zadanie.jpg', confidence=0.6):
+        pyautogui.keyDown('f2')
+        time.sleep(4)
     time.sleep(3)
 
 
@@ -173,11 +176,10 @@ while True:
     pressStar()
     while True:
         time.sleep(random.uniform(0.3, 0.5))
-        if pyautogui.locateOnScreen('openstar.jpg', confidence=0.6):
+        if pyautogui.locateOnScreen('grafika/openstar.jpg', confidence=0.6):
             break
         else:
             pressStar()
-
 
     time.sleep(random.uniform(0.8, 1.2))
     pyautogui.click(1015, 473, clicks=2)
@@ -189,7 +191,7 @@ while True:
     startAdventure()
     need_wait_more = True
     while need_wait_more:
-        if pyautogui.locateOnScreen('pole przygody.jpg', confidence=0.8):
+        if pyautogui.locateOnScreen('grafika/pole przygody.jpg', confidence=0.8):
             time.sleep(1)
             print("x")
             need_wait_more = False
@@ -202,11 +204,11 @@ while True:
     time.sleep(random.uniform(0.8, 1.2))
     need_wait_more = True
     while need_wait_more:
-        if pyautogui.locateOnScreen('oboz.jpg', confidence=0.8):
+        if pyautogui.locateOnScreen('grafika/oboz.jpg', confidence=0.8):
             for i in range(10):
                 pyautogui.scroll(-1600)
             time.sleep(random.uniform(0.8, 1.2))
-            centre_cords = pyautogui.locateOnScreen('oboz.jpg', confidence=0.8)
+            centre_cords = pyautogui.locateOnScreen('grafika/oboz.jpg', confidence=0.8)
             print(centre_cords)
             pyautogui.moveTo(centre_cords)
             time.sleep(random.uniform(0.8, 1.2))
@@ -222,7 +224,7 @@ while True:
     spellGhost()
     need_wait_more = True
     while need_wait_more:
-        if pyautogui.locateOnScreen('gotowe duchy.jpg', confidence=0.95) or pyautogui.locateOnScreen('gotowe duchy2.jpg', confidence=0.95):
+        if pyautogui.locateOnScreen('grafika/gotowe duchy.jpg', confidence=0.95) or pyautogui.locateOnScreen('grafika/gotowe duchy2.jpg', confidence=0.95):
             time.sleep(random.uniform(0.8, 1.2))
             need_wait_more = False
             pressStar()
@@ -237,13 +239,12 @@ while True:
     need_wait_more = True
     while need_wait_more:
         time.sleep(2)
-        if pyautogui.locateOnScreen('zajety.jpg', confidence=0.9):
+        if pyautogui.locateOnScreen('grafika/zajety.jpg', confidence=0.9):
             time.sleep(random.uniform(0.8, 1.2))
         else:
             need_wait_more = False
             pyautogui.click(1226, 366)
-            attack(617, 248,957, 401)
-
+            attack(617, 248, 957, 401)
 
     time.sleep(30)
     pyautogui.moveTo(126, 222, 0.3)
@@ -269,5 +270,3 @@ while True:
     time.sleep(15)
     pyautogui.click(960, 769)
     time.sleep(5)
-
-
